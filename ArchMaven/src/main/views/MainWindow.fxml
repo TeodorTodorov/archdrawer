@@ -1,62 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <MenuBar layoutX="14.0" layoutY="2.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UIDescriptorController">
+   <top>
+      <MenuBar prefHeight="16.0" prefWidth="594.0" scaleShape="false" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="menuItemOpenFile" mnemonicParsing="false" onAction="#openFile" text="Open File" />
+                  <MenuItem fx:id="menuItemOpenRecent" mnemonicParsing="false" onAction="#openRecent" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="menuItemExit" mnemonicParsing="false" onAction="#exit" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Settings">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem fx:id="menuItemEditLimits" mnemonicParsing="false" onAction="#editLimits" text="Edit Limits" />
+                  <MenuItem fx:id="menuItemEditSteppers" mnemonicParsing="false" onAction="#editSteppers" text="Edit Steppers" />
+                  <MenuItem fx:id="menuItemPreferences" mnemonicParsing="false" onAction="#Preferences" text="Preferences" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Draw">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="menuItemDrawStart" mnemonicParsing="false" onAction="#startDraw" text="Start" />
+              <MenuItem fx:id="menuItemDrawPause" mnemonicParsing="false" onAction="#pauseDraw" text="Pause" />
+                  <MenuItem fx:id="menuItemDrawStop" mnemonicParsing="false" onAction="#stopDraw" text="Stop" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                  <MenuItem fx:id="menuItemInstructions" mnemonicParsing="false" onAction="#instructions" text="Instructions" />
+                <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#about" text="About" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane layoutX="493.0" layoutY="268.0" prefHeight="416.0" prefWidth="164.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="493.0" AnchorPane.rightAnchor="1.0">
+   </top>
+   <bottom>
+      <HBox prefHeight="169.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane layoutX="493.0" layoutY="8.0" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="1.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <TextArea editable="false" prefHeight="169.0" prefWidth="291.0" promptText="&lt;--- INPUT LOG HERE ---&gt;" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc." wrapText="true" />
+            <FlowPane prefHeight="169.0" prefWidth="509.0">
                <children>
-                  <Button layoutX="549.0" layoutY="40.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="U" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button layoutX="579.0" layoutY="71.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="R1" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <Button layoutX="486.0" layoutY="71.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="L1" GridPane.rowIndex="2" />
-                  <Button layoutX="612.0" layoutY="71.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="L1" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                  <Button layoutX="552.0" layoutY="74.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button layoutX="549.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="L1" GridPane.columnIndex="2" />
-                  <Button layoutX="549.0" layoutY="102.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="D" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button layoutX="519.0" layoutY="71.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="L1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button layoutX="549.0" layoutY="136.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" text="L1" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <GridPane gridLinesVisible="true" prefHeight="167.0" prefWidth="523.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btnYplusCustom" mnemonicParsing="false" onAction="#PlusYCustom" prefHeight="25.0" prefWidth="80.0" text="Y+Custom" GridPane.columnIndex="3" />
+                        <Button fx:id="btnYplus10" mnemonicParsing="false" onAction="#PlusY10" prefHeight="25.0" prefWidth="82.0" text="Y+10" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button fx:id="btnYplus1" mnemonicParsing="false" onAction="#PlusY10" prefHeight="25.0" prefWidth="78.0" text="Y+1" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Button fx:id="btnYminus1" mnemonicParsing="false" onAction="#MinusY1" prefHeight="25.0" prefWidth="84.0" text="Y-1" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Button fx:id="btnYminus10" mnemonicParsing="false" onAction="#MinusT10" prefHeight="25.0" prefWidth="79.0" text="Y-10" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                        <Button fx:id="btnYminusCustom" mnemonicParsing="false" onAction="#btnYminusCustom" prefHeight="25.0" prefWidth="80.0" text="Y-Custom" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                        <Button fx:id="btnXminus1" mnemonicParsing="false" onAction="#MinusX1" prefHeight="25.0" prefWidth="84.0" text="X-1" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="btnXminus10" mnemonicParsing="false" onAction="#MinusX10" prefHeight="25.0" prefWidth="86.0" text="X-10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="btnXminusCustom" mnemonicParsing="false" onAction="#MinusXCustom" prefHeight="25.0" prefWidth="83.0" text="X-Custom" GridPane.rowIndex="3" />
+                        <Button fx:id="btnXplus1" mnemonicParsing="false" onAction="#PlusX1" prefHeight="25.0" prefWidth="79.0" text="X+1" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <Button fx:id="btnXplus10" mnemonicParsing="false" onAction="#PlusX10" prefHeight="25.0" prefWidth="78.0" text="X+10" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                        <Button fx:id="btnXplusCustom" mnemonicParsing="false" onAction="#PlusXCustom" prefHeight="25.0" prefWidth="80.0" text="X+Custom" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
                </children>
-            </GridPane>
+            </FlowPane>
          </children>
-      </AnchorPane>
-   </children>
-</AnchorPane>
+      </HBox>
+   </bottom>
+   <center>
+      <ImageView fitHeight="301.0" fitWidth="809.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
